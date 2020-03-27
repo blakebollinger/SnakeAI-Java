@@ -7,7 +7,7 @@ public class Display extends JFrame {
     public Display() {
         super("Snake Graphics");
 
-        setSize(500, 500);
+        setSize(750, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
@@ -17,8 +17,20 @@ public class Display extends JFrame {
 
         Graphics2D g2d = (Graphics2D) g;
 
+        // Initializes text font
+        Font font = new Font("Helvetica", Font.PLAIN, 12);
+
+        g2d.setFont(font);
+
         // Border
-        g2d.drawRect(20, 40, 460, 440);
+        g2d.drawRect(20, 90, 710, 690);
+
+        // Title
+        String title = "Welcome to SnakeAI";
+        g2d.drawString(title, (750 - getFontMetrics(font).stringWidth(title)) / 2, 45);
+
+        // Score
+        g2d.drawString("Score: ", 20, 80);
 
     }
 
