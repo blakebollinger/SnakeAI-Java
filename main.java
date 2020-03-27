@@ -4,9 +4,9 @@ public class main {
 
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Welcome to Snake");
 
-
+        // Quick Swing implementation drawing our game
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
