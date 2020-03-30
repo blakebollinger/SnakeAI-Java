@@ -1,9 +1,11 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Snake {
 
     // Allows for variable snake starting lengths
     private int initLength;
+    private static ArrayList<Coordinate> position = new ArrayList<>();
 
     // Basic constructor
     public Snake(int i) {
@@ -12,17 +14,24 @@ public class Snake {
 
     public static void initSnake(Graphics2D g2d) {
         // Generate random starting coordinates
-        Randomizer coords = new Randomizer();
-        System.out.println("Snake generated at X:" + coords.getX() + " Y:" + coords.getY());
+        Randomizer startingCoords = new Randomizer();
+        getPosition().add(new Coordinate(startingCoords.getX(), startingCoords.getY()));
+        getPosition().add(new Coordinate(startingCoords.getX() + 1, startingCoords.getY()));
+        getPosition().add(new Coordinate(startingCoords.getX() + 2, startingCoords.getY()));
 
         // Draw snake at specified coordinates
-        g2d.fillRect(coords.getX(), coords.getY(), 30, 30);
-        g2d.fillRect(coords.getX() + 30, coords.getY(), 30, 30);
-        g2d.fillRect(coords.getX() + 60, coords.getY(), 30, 30);
+        Display.drawSnake(g2d);
 
         // Display completion message
-        System.out.println("Snake generated at X:" + coords.getX() + " Y:" + coords.getY());
+        System.out.println("Snake generated at X:" + startingCoords.getX() + " Y:" + startingCoords.getY());
 
     }
 
+    public static void updatePosition() {
+
+    }
+
+    public static ArrayList<Coordinate> getPosition() {
+        return position;
+    }
 }
