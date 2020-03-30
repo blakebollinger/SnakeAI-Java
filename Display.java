@@ -7,7 +7,7 @@ public class Display extends JFrame {
     public Display() {
         super("Snake Graphics");
 
-        setSize(750, 800);
+        setSize(730, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
@@ -22,8 +22,18 @@ public class Display extends JFrame {
 
         g2d.setFont(font);
 
+        // Draw Grid
+        g2d.setColor(Color.lightGray);
+        for (int i = 50; i <= 690; i += 30) {
+            g2d.drawLine(i, 90, i, 780);
+        }
+        for (int i = 90; i <= 780; i += 30) {
+            g2d.drawLine(20, i, 710, i);
+        }
+        g2d.setColor(Color.black);
+
         // Border
-        g2d.drawRect(20, 90, 710, 690);
+        g2d.drawRect(20, 90, 690, 690);
 
         // Title
         String title = "Welcome to SnakeAI";
