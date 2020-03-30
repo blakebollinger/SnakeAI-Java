@@ -3,11 +3,14 @@ import java.awt.*;
 
 public class Display extends JFrame {
 
+    private int displayWidth = 730;
+    private int displayHeight = 800;
+
     // Defining parameters for our display,
     public Display() {
         super("Snake Graphics");
 
-        setSize(730, 800);
+        setSize(displayWidth, displayHeight);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
@@ -45,7 +48,7 @@ public class Display extends JFrame {
 
         // Title
         String title = "Welcome to SnakeAI";
-        g2d.drawString(title, (750 - getFontMetrics(font).stringWidth(title)) / 2, 45);
+        g2d.drawString(title, (displayWidth - getFontMetrics(font).stringWidth(title)) / 2, 45);
 
         // Score
         g2d.drawString("Score: ", 20, 80);
@@ -60,5 +63,13 @@ public class Display extends JFrame {
 
         drawGame(g);
 
+    }
+
+    public int getDisplayHeight() {
+        return displayHeight;
+    }
+
+    public int getDisplayWidth() {
+        return displayWidth;
     }
 }
