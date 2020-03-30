@@ -11,10 +11,11 @@ public class Snake {
     }
 
     public static void initSnake(Graphics2D g2d) {
+        Randomizer coords = new Randomizer();
 
-        g2d.fillRect(320, 420, 30, 30);
-        g2d.fillRect(350, 420, 30, 30);
-        g2d.fillRect(380, 420, 30, 30);
+        g2d.fillRect(coords.getX(), 420, 30, 30);
+        g2d.fillRect(coords.getX()+30, 420, 30, 30);
+        g2d.fillRect(coords.getX()+60, 420, 30, 30);
 
     }
 
