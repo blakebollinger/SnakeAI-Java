@@ -17,6 +17,14 @@ public class Display extends JFrame {
 
         Graphics2D g2d = (Graphics2D) g;
 
+        initBoard(g2d);
+
+        Snake.initSnake(g2d);
+
+    }
+
+    public void initBoard(Graphics2D g2d) {
+
         // Initializes text font
         Font font = new Font("Helvetica", Font.PLAIN, 12);
 
