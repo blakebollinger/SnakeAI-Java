@@ -35,12 +35,51 @@ public class Display extends JFrame {
 
         // Draw Grid
         g2d.setColor(Color.lightGray);
-        for (int i = 50; i <= 690; i += 30) {
-            g2d.drawLine(i, 90, i, 780);
-        }
-        for (int i = 90; i <= 780; i += 30) {
-            g2d.drawLine(20, i, 710, i);
-        }
+        g2d.drawLine(50, 90, 50, 780);
+        g2d.drawLine(80, 90, 80, 780);
+        g2d.drawLine(110, 90, 110, 780);
+        g2d.drawLine(140, 90, 140, 780);
+        g2d.drawLine(170, 90, 170, 780);
+        g2d.drawLine(200, 90, 200, 780);
+        g2d.drawLine(230, 90, 230, 780);
+        g2d.drawLine(260, 90, 260, 780);
+        g2d.drawLine(290, 90, 290, 780);
+        g2d.drawLine(320, 90, 320, 780);
+        g2d.drawLine(350, 90, 350, 780);
+        g2d.drawLine(380, 90, 380, 780);
+        g2d.drawLine(410, 90, 410, 780);
+        g2d.drawLine(440, 90, 440, 780);
+        g2d.drawLine(470, 90, 470, 780);
+        g2d.drawLine(500, 90, 500, 780);
+        g2d.drawLine(530, 90, 530, 780);
+        g2d.drawLine(560, 90, 560, 780);
+        g2d.drawLine(590, 90, 590, 780);
+        g2d.drawLine(620, 90, 620, 780);
+        g2d.drawLine(650, 90, 650, 780);
+        g2d.drawLine(680, 90, 680, 780);
+
+        g2d.drawLine(20, 120, 710, 120);
+        g2d.drawLine(20, 150, 710, 150);
+        g2d.drawLine(20, 180, 710, 180);
+        g2d.drawLine(20, 210, 710, 210);
+        g2d.drawLine(20, 240, 710, 240);
+        g2d.drawLine(20, 270, 710, 270);
+        g2d.drawLine(20, 300, 710, 300);
+        g2d.drawLine(20, 330, 710, 330);
+        g2d.drawLine(20, 360, 710, 360);
+        g2d.drawLine(20, 390, 710, 390);
+        g2d.drawLine(20, 420, 710, 420);
+        g2d.drawLine(20, 450, 710, 450);
+        g2d.drawLine(20, 480, 710, 480);
+        g2d.drawLine(20, 510, 710, 510);
+        g2d.drawLine(20, 540, 710, 540);
+        g2d.drawLine(20, 570, 710, 570);
+        g2d.drawLine(20, 600, 710, 600);
+        g2d.drawLine(20, 630, 710, 630);
+        g2d.drawLine(20, 660, 710, 660);
+        g2d.drawLine(20, 690, 710, 690);
+        g2d.drawLine(20, 720, 710, 720);
+        g2d.drawLine(20, 750, 710, 750);
         g2d.setColor(Color.black);
 
         // Border
