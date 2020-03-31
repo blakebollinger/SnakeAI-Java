@@ -9,7 +9,15 @@ public class Game {
 
     }
 
-    public void start() {
+    public void start() throws InterruptedException {
+
+        //noinspection InfiniteLoopStatement
+        while (true) {
+            System.out.println(Snake.getPosition());
+            Thread.sleep(2000);
+            Snake.updatePosition();
+            this.getDisplay().update(this.getDisplay().getGraphics());
+        }
 
         // Move Snake
         // Update position

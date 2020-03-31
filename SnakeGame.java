@@ -9,14 +9,7 @@ public class SnakeGame {
 
         Game mainGame = new Game();
 
-        //noinspection InfiniteLoopStatement
-        while (true) {
-            System.out.println(Snake.getPosition());
-            Thread.sleep(2000);
-            Snake.updatePosition();
-            mainGame.getDisplay().update(mainGame.getDisplay().getGraphics());
-        }
-
+        mainGame.start();
 
     }
 
