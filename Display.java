@@ -56,8 +56,13 @@ public class Display extends JFrame {
     }
 
     public static void drawSnake(Graphics2D g2d) {
-        for (int i = 0; i < Snake.getPosition().size(); i++) {
-            g2d.drawRect((Snake.getPosition().get(i).getX() * 30) + 20, (Snake.getPosition().get(i).getY() * 30) + 90, 30, 30);
+
+        // Draw in head
+        g2d.drawRect((Snake.getPosition().get(0).getX() * 30) + 20, (Snake.getPosition().get(0).getY() * 30) + 90, 30, 30);
+
+        // Draw in tail
+        for (int i = 1; i < Snake.getPosition().size(); i++) {
+            g2d.fillRect((Snake.getPosition().get(i).getX() * 30) + 20, (Snake.getPosition().get(i).getY() * 30) + 90, 30, 30);
         }
     }
 
