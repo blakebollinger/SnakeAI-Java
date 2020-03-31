@@ -6,6 +6,7 @@ public class Snake {
     // Allows for variable snake starting lengths
     private int initLength;
     private static ArrayList<Coordinate> position = new ArrayList<>();
+    private static String direction;
 
     // Basic constructor
     public Snake(int i) {
@@ -28,21 +29,25 @@ public class Snake {
     public static void initDirection(Randomizer r) {
         switch (r.getDirection()) {
             case "up":
+                direction = "up";
                 getPosition().add(new Coordinate(r.getX(), r.getY()));
                 getPosition().add(new Coordinate(r.getX(), r.getY() - 1));
                 getPosition().add(new Coordinate(r.getX(), r.getY() - 2));
                 break;
             case "right":
+                direction = "right";
                 getPosition().add(new Coordinate(r.getX(), r.getY()));
                 getPosition().add(new Coordinate(r.getX() - 1, r.getY()));
                 getPosition().add(new Coordinate(r.getX() - 2, r.getY()));
                 break;
             case "down":
+                direction = "down";
                 getPosition().add(new Coordinate(r.getX(), r.getY()));
                 getPosition().add(new Coordinate(r.getX(), r.getY() + 1));
                 getPosition().add(new Coordinate(r.getX(), r.getY() + 2));
                 break;
             case "left":
+                direction = "left";
                 getPosition().add(new Coordinate(r.getX(), r.getY()));
                 getPosition().add(new Coordinate(r.getX() + 1, r.getY()));
                 getPosition().add(new Coordinate(r.getX() + 2, r.getY()));
@@ -52,6 +57,22 @@ public class Snake {
     }
 
     public static void updatePosition() {
+
+        for (int i = position.size(); i > 1; i--) {
+            position.get(i - 1).setY(position.get(i - 2).getY());
+            position.get(i - 1).setX(position.get(i - 2).getX());
+        }
+
+        switch (direction) {
+            case "up":
+                position.get(0).setY(position.get(0).getY() - 1);
+            case "right":
+                position.get(0).setX(position.get(0).getX() + 1);
+            case "down":
+                position.get(0).setY(position.get(0).getY() + 1);
+            case "left":
+                position.get(0).setX(position.get(0).getX() - 1);
+        }
 
     }
 
