@@ -28,8 +28,8 @@ public class Snake {
             case "up":
                 direction = "up";
                 getPosition().add(new Coordinate(r.getX(), r.getY()));
-                getPosition().add(new Coordinate(r.getX(), r.getY() - 1));
-                getPosition().add(new Coordinate(r.getX(), r.getY() - 2));
+                getPosition().add(new Coordinate(r.getX(), r.getY() + 1));
+                getPosition().add(new Coordinate(r.getX(), r.getY() + 2));
                 break;
             case "right":
                 direction = "right";
@@ -40,8 +40,8 @@ public class Snake {
             case "down":
                 direction = "down";
                 getPosition().add(new Coordinate(r.getX(), r.getY()));
-                getPosition().add(new Coordinate(r.getX(), r.getY() + 1));
-                getPosition().add(new Coordinate(r.getX(), r.getY() + 2));
+                getPosition().add(new Coordinate(r.getX(), r.getY() - 1));
+                getPosition().add(new Coordinate(r.getX(), r.getY() - 2));
                 break;
             case "left":
                 direction = "left";
@@ -63,12 +63,19 @@ public class Snake {
         switch (direction) {
             case "up":
                 position.get(0).setY(position.get(0).getY() - 1);
+                break;
             case "right":
                 position.get(0).setX(position.get(0).getX() + 1);
+                break;
             case "down":
                 position.get(0).setY(position.get(0).getY() + 1);
+                break;
             case "left":
                 position.get(0).setX(position.get(0).getX() - 1);
+                break;
+            default:
+                System.out.println("ERROR: INCORRECT DIRECTION OBTAINED IN UPDATEPOSITION");
+                break;
         }
 
     }
