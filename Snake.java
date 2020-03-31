@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.ArrayList;
 
 public class Snake {
@@ -7,19 +6,17 @@ public class Snake {
     private int initLength;
     private static ArrayList<Coordinate> position = new ArrayList<>();
     private static String direction;
+    private static boolean snakeExists;
 
     // Basic constructor
     public Snake(int i) {
         initLength = i;
     }
 
-    public static void initSnake(Graphics2D g2d) {
+    public static void initSnake() {
         // Generate random starting coordinates
         Randomizer startingCoords = new Randomizer();
         initDirection(startingCoords);
-
-        // Draw snake at specified coordinates
-        Display.drawSnake(g2d);
 
         // Display completion message
         System.out.println("Snake generated at X:" + startingCoords.getX() + " Y:" + startingCoords.getY());
@@ -74,6 +71,14 @@ public class Snake {
                 position.get(0).setX(position.get(0).getX() - 1);
         }
 
+    }
+
+    public static boolean doesSnakeExist() {
+        return snakeExists;
+    }
+
+    public static void setSnakeExists(boolean snakeExists) {
+        Snake.snakeExists = snakeExists;
     }
 
     public static ArrayList<Coordinate> getPosition() {

@@ -1,10 +1,16 @@
 public class Game {
 
+    Display display;
+
     public Game() {
+
+        display = new Display();
+        display.setVisible(true);
 
     }
 
     public void start() {
+
         // Move Snake
         // Update position
         // Update Graphics
@@ -16,4 +22,7 @@ public class Game {
         // User input detect
     }
 
+    public Display getDisplay() {
+        return display;
+    }
 }

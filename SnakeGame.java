@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class SnakeGame {
 
 
@@ -9,14 +7,14 @@ public class SnakeGame {
 
         System.out.println("Generating game...");
 
-        // Quick Swing implementation drawing our game
-        SwingUtilities.invokeLater(() -> new Display().setVisible(true));
+        Game mainGame = new Game();
 
         //noinspection InfiniteLoopStatement
         while (true) {
             System.out.println(Snake.getPosition());
             Thread.sleep(2000);
             Snake.updatePosition();
+            mainGame.getDisplay().update(mainGame.getDisplay().getGraphics());
         }
 
 
