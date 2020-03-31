@@ -3,8 +3,8 @@ import java.awt.event.KeyListener;
 
 public class Game {
 
+    int gameSpeed = 500;
     Display display;
-
     KeyListener key = new KeyListener() {
         @Override
         public void keyTyped(KeyEvent keyEvent) {
@@ -47,12 +47,23 @@ public class Game {
         }
     };
 
+    public Game() throws InterruptedException {
+
+        display = new Display();
+        display.setVisible(true);
+
+        display.addKeyListener(key);
+
+        Thread.sleep(5000);
+
+    }
+
     public void start() throws InterruptedException {
 
         //noinspection InfiniteLoopStatement
         while (true) {
             System.out.println(Snake.getPosition());
-            Thread.sleep(2000);
+            Thread.sleep(gameSpeed);
             Snake.updatePosition();
             this.getDisplay().update(this.getDisplay().getGraphics());
         }
@@ -66,15 +77,6 @@ public class Game {
         // Food Detect
 
         // User input detect
-    }
-
-    public Game() {
-
-        display = new Display();
-        display.setVisible(true);
-
-        display.addKeyListener(key);
-
     }
 
     public Display getDisplay() {
