@@ -1,13 +1,51 @@
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 public class Game {
 
     Display display;
 
-    public Game() {
+    KeyListener key = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent keyEvent) {
 
-        display = new Display();
-        display.setVisible(true);
+        }
 
-    }
+        @Override
+        public void keyPressed(KeyEvent keyEvent) {
+            int keyPressed = keyEvent.getKeyCode();
+
+            switch (keyPressed) {
+                case 87:
+                    if (!Snake.getDirection().equals("down")) {
+                        Snake.setDirection("up");
+                    }
+                    break;
+                case 68:
+                    if (!Snake.getDirection().equals("left")) {
+                        Snake.setDirection("right");
+                    }
+                    break;
+                case 83:
+                    if (!Snake.getDirection().equals("up")) {
+                        Snake.setDirection("down");
+                    }
+                    break;
+                case 65:
+                    if (!Snake.getDirection().equals("right")) {
+                        Snake.setDirection("left");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent keyEvent) {
+
+        }
+    };
 
     public void start() throws InterruptedException {
 
@@ -28,6 +66,15 @@ public class Game {
         // Food Detect
 
         // User input detect
+    }
+
+    public Game() {
+
+        display = new Display();
+        display.setVisible(true);
+
+        display.addKeyListener(key);
+
     }
 
     public Display getDisplay() {
