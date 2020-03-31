@@ -91,4 +91,12 @@ public class Snake {
     public static ArrayList<Coordinate> getPosition() {
         return position;
     }
+
+    public static String getDirection() {
+        return direction;
+    }
+
+    public static void setDirection(String direction) {
+        Snake.direction = direction;
+    }
 }
