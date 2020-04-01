@@ -38,12 +38,19 @@ public class Display extends JFrame {
     public static void drawFood(Graphics g2d)
     {
 
-
         Randomizer f = new Randomizer();
-        System.out.println("Randomizer coords x:" + f.getX() + " y: " + f.getY());
         Food food = new Food(f);
+        System.out.println("State of food " + Food.getFoodExists());
+        if (!Food.getFoodExists())
+        {
 
-        g2d.fillRect((food.getX() * 30) + 20, (food.getY() * 30) + 90, 30, 30);
+            g2d.fillRect((food.getX() * 30) + 20, (food.getY() * 30) + 90, 30, 30);
+            Food.setFoodExists(true);
+
+        }
+
+
+
 
     }
 
@@ -54,6 +61,7 @@ public class Display extends JFrame {
         initBoard(g2d);
         drawSnake(g2d);
         drawFood(g2d);
+
 
     }
 
