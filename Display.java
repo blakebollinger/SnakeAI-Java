@@ -8,6 +8,7 @@ public class Display extends JFrame {
     private boolean boardExists = false;
     private Graphics graphics;
     private Graphics2D graphics2d;
+    private Font font;
 
     // Defining parameters for our display,
     public Display() {
@@ -47,6 +48,8 @@ public class Display extends JFrame {
 
         // Initializes text font
         Font font = new Font("Helvetica", Font.PLAIN, 12);
+
+        setFont(font);
 
         g2d.setFont(font);
 
@@ -98,5 +101,15 @@ public class Display extends JFrame {
 
     public int getDisplayWidth() {
         return displayWidth;
+    }
+
+    @Override
+    public Font getFont() {
+        return font;
+    }
+
+    @Override
+    public void setFont(Font font) {
+        this.font = font;
     }
 }

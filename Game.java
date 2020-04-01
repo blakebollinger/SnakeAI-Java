@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -58,6 +59,25 @@ public class Game {
 
     }
 
+    public void end() {
+
+        Graphics2D g2d = (Graphics2D) display.getGraphics();
+
+        g2d.setColor(Color.WHITE);
+
+        g2d.fillRect(0, 0, 730, 800);
+
+        g2d.setColor(Color.black);
+
+        String loseMessage = "Placeholder Message...You Lose";
+
+        g2d.drawString(loseMessage,
+                (display.getDisplayWidth() - display.getFontMetrics(display.getFont()).stringWidth(loseMessage)) / 2,
+                400);
+
+
+    }
+
     public void start() throws InterruptedException {
 
         //noinspection InfiniteLoopStatement
@@ -66,17 +86,21 @@ public class Game {
             Thread.sleep(gameSpeed);
             Snake.updatePosition();
             this.getDisplay().update(this.getDisplay().getGraphics());
+
+
+            // Move Snake
+            // Update position
+            // Update Graphics
+
+            // Edge Detect
+
+            Snake.isValidPosition();
+
+
+            // Food Detect
+
+            // User input detect
         }
-
-        // Move Snake
-        // Update position
-        // Update Graphics
-
-        // Edge Detect
-
-        // Food Detect
-
-        // User input detect
     }
 
     public Display getDisplay() {
