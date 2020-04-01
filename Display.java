@@ -35,12 +35,25 @@ public class Display extends JFrame {
         }
     }
 
+    public static void drawFood(Graphics g2d)
+    {
+
+
+        Randomizer f = new Randomizer();
+        System.out.println("Randomizer coords x:" + f.getX() + " y: " + f.getY());
+        Food food = new Food(f);
+
+        g2d.fillRect(food.getX(),food.getY(),30,30);
+
+    }
+
     // Does all initial drawing for game
     public void drawGame(Graphics g) {
 
         Graphics2D g2d = (Graphics2D) g;
         initBoard(g2d);
         drawSnake(g2d);
+        drawFood(g2d);
 
     }
 
