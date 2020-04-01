@@ -59,7 +59,7 @@ public class Game {
 
     }
 
-    public void end() {
+    public void end() throws InterruptedException {
 
         Graphics2D g2d = (Graphics2D) display.getGraphics();
 
@@ -69,12 +69,15 @@ public class Game {
 
         g2d.setColor(Color.black);
 
-        String loseMessage = "Placeholder Message...You Lose";
+        String loseMessage = "Placeholder Message...You Lose        Please Restart the game";
 
         g2d.drawString(loseMessage,
                 (display.getDisplayWidth() - display.getFontMetrics(display.getFont()).stringWidth(loseMessage)) / 2,
                 400);
 
+        Thread.sleep(2000);
+
+        System.exit(0);
 
     }
 

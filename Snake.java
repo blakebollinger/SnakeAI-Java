@@ -100,7 +100,7 @@ public class Snake {
         Snake.direction = direction;
     }
 
-    public static void isValidPosition() {
+    public static void isValidPosition() throws InterruptedException {
 
         for (Coordinate coordinate : position) {
             if (coordinate.getX() < 0 || coordinate.getX() > 23
