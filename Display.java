@@ -43,7 +43,7 @@ public class Display extends JFrame {
         System.out.println("Randomizer coords x:" + f.getX() + " y: " + f.getY());
         Food food = new Food(f);
 
-        g2d.fillRect(food.getX(),food.getY(),30,30);
+        g2d.fillRect((food.getX() * 30) + 20, (food.getY() * 30) + 90, 30, 30);
 
     }
 
