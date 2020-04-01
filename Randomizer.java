@@ -8,7 +8,7 @@ public class Randomizer {
 
         y = ((int) (Math.random() * (23 - 6))) + 3;
         x = ((int) (Math.random() * (23 - 6))) + 3;
-        direction = (int) (Math.random() * 4);
+        direction = 3;
         System.out.println(direction);
     }
 

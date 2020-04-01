@@ -102,12 +102,15 @@ public class Snake {
 
     public static void isValidPosition() throws InterruptedException {
 
-        for (Coordinate coordinate : position) {
-            if (coordinate.getX() < 0 || coordinate.getX() >= 23
-                    || coordinate.getY() < 0 || coordinate.getY() >= 23) {
+        if (position.get(0).getX() < 0 || position.get(0).getX() >= 23 ||
+                position.get(0).getY() < 0 || position.get(0).getY() >= 23) {
+            SnakeGame.getMainGame().end();
+        }
+        for (int i = 1; i < position.size(); i++) {
+            if (position.get(0).getX() == position.get(i).getX() &&
+                    position.get(0).getY() == position.get(i).getY()) {
                 SnakeGame.getMainGame().end();
             }
         }
-
     }
 }
