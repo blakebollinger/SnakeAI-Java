@@ -99,4 +99,15 @@ public class Snake {
     public static void setDirection(String direction) {
         Snake.direction = direction;
     }
+
+    public static void isValidPosition() throws InterruptedException {
+
+        for (Coordinate coordinate : position) {
+            if (coordinate.getX() < 0 || coordinate.getX() >= 23
+                    || coordinate.getY() < 0 || coordinate.getY() >= 23) {
+                SnakeGame.getMainGame().end();
+            }
+        }
+
+    }
 }

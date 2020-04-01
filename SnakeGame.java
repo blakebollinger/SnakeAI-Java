@@ -1,5 +1,6 @@
 public class SnakeGame {
 
+    private static Game mainGame;
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -7,11 +8,14 @@ public class SnakeGame {
 
         System.out.println("Generating game...");
 
-        Game mainGame = new Game();
+        mainGame = new Game();
 
         mainGame.start();
 
+
     }
 
-
+    public static Game getMainGame() {
+        return mainGame;
+    }
 }
