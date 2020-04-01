@@ -38,19 +38,17 @@ public class Display extends JFrame {
     public static void drawFood(Graphics g2d)
     {
 
-        Randomizer f = new Randomizer();
-        Food food = new Food(f);
         System.out.println("State of food " + Food.getFoodExists());
-        if (!Food.getFoodExists())
-        {
+        if (!Food.getFoodExists()) {
+            System.out.println("Food didnt exist...making new food");
 
-            g2d.fillRect((food.getX() * 30) + 20, (food.getY() * 30) + 90, 30, 30);
+            Randomizer f = new Randomizer();
+            Food.setX(f.getX());
+            Food.setY(f.getY());
             Food.setFoodExists(true);
-
         }
 
-
-
+        g2d.fillRect((Food.getX() * 30) + 20, (Food.getY() * 30) + 90, 30, 30);
 
     }
 

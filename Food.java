@@ -1,11 +1,10 @@
 public class Food {
-    private int x;
-    private int y;
+    private static int x;
+    private static int y;
     private static boolean foodExists;
 
 
-    public Food(Randomizer f)
-    {
+    public Food(Randomizer f) {
 
         x = f.getX();
         y = f.getY();
@@ -13,12 +12,27 @@ public class Food {
     }
 
 
-    public static void setFoodExists(boolean foodExists){Food.foodExists = foodExists;}
+    public static void setFoodExists(boolean foodExists) {
+        Food.foodExists = foodExists;
+    }
 
-    public static boolean getFoodExists(){return foodExists;}
-    public int getX(){return x;}
-    public int getY(){return y;}
+    public static boolean getFoodExists() {
+        return foodExists;
+    }
 
+    public static int getX() {
+        return x;
+    }
 
+    public static void setX(int x) {
+        Food.x = x;
+    }
 
+    public static int getY() {
+        return y;
+    }
+
+    public static void setY(int y) {
+        Food.y = y;
+    }
 }
