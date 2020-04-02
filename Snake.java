@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Snake {
 
@@ -78,6 +79,33 @@ public class Snake {
                 break;
         }
 
+    }
+
+    public static double distUp() {
+
+        if (!(direction.equals("down"))) {
+            System.out.println("Trying to calc");
+            double distToTop = (-position.get(0).getY()) * -1;
+            int distCounter = 0;
+            ArrayList<Double> distList = new ArrayList<>();
+
+            distList.add(distToTop);
+
+            for (int i = 1; i < position.size(); i++) {
+                if (position.get(i).getX() == position.get(0).getX()) {
+                    distList.add((double) ((position.get(i).getY()) - position.get(0).getY()) * -1);
+                }
+            }
+
+            Collections.sort(distList);
+
+            for (Double i : distList) {
+                if (i > 0) {
+                    return i;
+                }
+            }
+        }
+        return 0.0;
     }
 
     public static boolean doesSnakeExist() {
