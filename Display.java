@@ -35,12 +35,31 @@ public class Display extends JFrame {
         }
     }
 
+    public static void drawFood(Graphics g2d)
+    {
+
+        System.out.println("State of food " + Food.getFoodExists());
+        if (!Food.getFoodExists()) {
+            System.out.println("Food didnt exist...making new food");
+
+            Randomizer f = new Randomizer();
+            Food.setX(f.getX());
+            Food.setY(f.getY());
+            Food.setFoodExists(true);
+        }
+
+        g2d.fillRect((Food.getX() * 30) + 20, (Food.getY() * 30) + 90, 30, 30);
+
+    }
+
     // Does all initial drawing for game
     public void drawGame(Graphics g) {
 
         Graphics2D g2d = (Graphics2D) g;
         initBoard(g2d);
         drawSnake(g2d);
+        drawFood(g2d);
+
 
     }
 
