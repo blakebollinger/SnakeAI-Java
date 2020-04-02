@@ -54,6 +54,14 @@ public class Snake {
     }
 
     public static void updatePosition() {
+        eatDetect();
+        System.out.println(eatDetect());
+        if(eatDetect())
+        {
+            position.add(new Coordinate(position.get(position.size() - 1).getX()-1, position.get(position.size() - 1).getY()-1));
+            Food.setFoodExists(false);
+        }
+
 
         for (int i = position.size(); i > 1; i--) {
             position.get(i - 1).setY(position.get(i - 2).getY());
@@ -78,6 +86,13 @@ public class Snake {
                 break;
         }
 
+    }
+
+    public static boolean eatDetect()
+    {
+        boolean eat;
+        eat = Food.getX() == getPosition().get(0).getX() && Food.getY() == Snake.getPosition().get(0).getY();
+        return eat;
     }
 
     public static boolean doesSnakeExist() {
