@@ -19,6 +19,7 @@ public class Snake {
         Randomizer startingCoords = new Randomizer();
         initDirection(startingCoords);
 
+
         // Display completion message
         System.out.println("Snake generated at X:" + startingCoords.getX() + " Y:" + startingCoords.getY());
 
