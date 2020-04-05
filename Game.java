@@ -99,7 +99,6 @@ public class Game {
 
             Snake.isValidPosition();
 
-
             // Food Detect
 
             // User input detect
