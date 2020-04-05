@@ -2,6 +2,38 @@ import java.util.ArrayList;
 
 public class NeuralNetFeatures {
 
+    public static ArrayList<Integer> generateOutput() {
+
+        ArrayList<Integer> output = checkDirections();
+
+        output.add(suggestDirection());
+
+        return output;
+
+    }
+
+    public static int suggestDirection() {
+
+        // Can snake go straight
+        if (checkDirections().get(1) == 0) {
+            return 0;
+        }
+        // If not straight, left?
+        else if (checkDirections().get(0) == 0) {
+            return -1;
+        }
+        // If all else fails, can we go right?
+        else if (checkDirections().get(2) == 0) {
+            return 1;
+        }
+
+        // If the snake unfortunately waltzed into a corner...
+        // Just take what's coming
+        else {
+            return 0;
+        }
+    }
+
     public static ArrayList<Integer> checkDirections() {
 
         switch (Snake.getDirection()) {
