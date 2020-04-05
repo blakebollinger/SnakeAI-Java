@@ -24,6 +24,7 @@ public class Display extends JFrame {
         if (!Snake.doesSnakeExist()) {
             Snake.initSnake();
             Snake.setSnakeExists(true);
+
         }
 
         // Draw in head
@@ -46,6 +47,7 @@ public class Display extends JFrame {
             Food.setX(f.getX());
             Food.setY(f.getY());
             Food.setFoodExists(true);
+            Score.addPoints();
         }
 
         g2d.fillRect((Food.getX() * 30) + 20, (Food.getY() * 30) + 90, 30, 30);
@@ -90,7 +92,7 @@ public class Display extends JFrame {
         g2d.drawString(title, (displayWidth - getFontMetrics(font).stringWidth(title)) / 2, 45);
 
         // Score
-        g2d.drawString("Score: ", 20, 80);
+        g2d.drawString(Score.pointsToString(), 20, 80);
 
         boardExists = true;
 
