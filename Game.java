@@ -99,9 +99,6 @@ public class Game {
 
             Snake.isValidPosition();
 
-            System.out.println(NeuralNetFeatures.generateOutput());
-
-
             // Food Detect
 
             // User input detect
