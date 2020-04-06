@@ -90,6 +90,8 @@ public class Game {
             Snake.updatePosition();
             this.getDisplay().update(this.getDisplay().getGraphics());
 
+            NeuralNetInteraction.learn();
+
 
             // Move Snake
             // Update position
