@@ -29,4 +29,10 @@ public class NeuralNetInteraction {
         }
     }
 
+    protected static void gameOver() {
+
+        nn.newGenome(Score.getPoints());
+
+    }
+
 }
