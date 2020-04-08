@@ -143,6 +143,36 @@ public class Snake {
 
     }
 
+    public static void turnLeft() {
+
+        switch (Snake.getDirection()) {
+            case "up":
+                direction = "left";
+            case "right":
+                direction = "up";
+            case "down":
+                direction = "right";
+            case "left":
+                direction = "down";
+        }
+
+    }
+
+    public static void turnRight() {
+
+        switch (Snake.getDirection()) {
+            case "up":
+                direction = "right";
+            case "right":
+                direction = "down";
+            case "down":
+                direction = "left";
+            case "left":
+                direction = "up";
+        }
+
+    }
+
     public static boolean doesSnakeExist() {
         return snakeExists;
     }

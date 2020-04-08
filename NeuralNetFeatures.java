@@ -2,11 +2,21 @@ import java.util.ArrayList;
 
 public class NeuralNetFeatures {
 
+    /*
+    Outputs features of current game state:
+    Index 0: Can the snake turn left
+    Index 1: Can the snake go straight
+    Index 2: Can the snake turn right
+    Index 3: Suggests a direction for the snake to go
+    Index 4: Where is the food relative to the snake
+    */
     public static ArrayList<Integer> generateOutput() {
 
         ArrayList<Integer> output = checkDirections();
 
         output.add(suggestDirection());
+
+        output.add(findFood());
 
         return output;
 
@@ -287,6 +297,55 @@ public class NeuralNetFeatures {
         }
 
         return output;
+
+    }
+
+
+    /* Returns:
+    -1 for left
+    0 for straight
+    1 for right
+    (position of food relative to snake head)
+     */
+    public static int findFood() {
+
+        switch (Snake.getDirection()) {
+            case "up":
+                if (Food.getX() < Snake.getPosition().get(0).getX()) {
+                    return -1;
+                } else if (Food.getX() == Snake.getPosition().get(0).getX()) {
+                    return 0;
+                } else if (Food.getX() > Snake.getPosition().get(0).getX()) {
+                    return 1;
+                }
+            case "right":
+                if (Food.getY() < Snake.getPosition().get(0).getY()) {
+                    return -1;
+                } else if (Food.getY() == Snake.getPosition().get(0).getY()) {
+                    return 0;
+                } else if (Food.getY() > Snake.getPosition().get(0).getY()) {
+                    return 1;
+                }
+            case "down":
+                if (Food.getX() > Snake.getPosition().get(0).getX()) {
+                    return -1;
+                } else if (Food.getX() == Snake.getPosition().get(0).getX()) {
+                    return 0;
+                } else if (Food.getX() < Snake.getPosition().get(0).getX()) {
+                    return 1;
+                }
+            case "left":
+                if (Food.getY() > Snake.getPosition().get(0).getY()) {
+                    return -1;
+                } else if (Food.getY() == Snake.getPosition().get(0).getY()) {
+                    return 0;
+                } else if (Food.getY() < Snake.getPosition().get(0).getY()) {
+                    return 1;
+                }
+            default:
+                System.out.println("ERROR IN FIND FOOD");
+                return 0;
+        }
 
     }
 
