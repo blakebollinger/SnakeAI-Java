@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -59,25 +58,17 @@ public class Game {
 
     }
 
-    public void end() throws InterruptedException {
+    public void end() {
 
-        Graphics2D g2d = (Graphics2D) display.getGraphics();
+        NeuralNetInteraction.gameOver();
 
-        g2d.setColor(Color.WHITE);
+        reset();
 
-        g2d.fillRect(0, 0, 730, 800);
+    }
 
-        g2d.setColor(Color.black);
+    private void reset() {
 
-        String loseMessage = "Placeholder Message...You Lose        Please Restart the game";
-
-        g2d.drawString(loseMessage,
-                (display.getDisplayWidth() - display.getFontMetrics(display.getFont()).stringWidth(loseMessage)) / 2,
-                400);
-
-        Thread.sleep(2000);
-
-        System.exit(0);
+        Snake.resetSnake();
 
     }
 

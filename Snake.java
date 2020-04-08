@@ -56,45 +56,52 @@ public class Snake {
     }
 
     public static void updatePosition() {
-        eatDetect();
-        System.out.println(eatDetect());
-        if(eatDetect())
-        {
-            position.add(new Coordinate(position.get(position.size() - 1).getX()-1, position.get(position.size() - 1).getY()-1));
-            Food.setFoodExists(false);
-        }
+
+        try {
+            eatDetect();
+            System.out.println(eatDetect());
+            if (eatDetect()) {
+                position.add(new Coordinate(position.get(position.size() - 1).getX() - 1, position.get(position.size() - 1).getY() - 1));
+                Food.setFoodExists(false);
+            }
 
 
-        for (int i = position.size(); i > 1; i--) {
-            position.get(i - 1).setY(position.get(i - 2).getY());
-            position.get(i - 1).setX(position.get(i - 2).getX());
-        }
+            for (int i = position.size(); i > 1; i--) {
+                position.get(i - 1).setY(position.get(i - 2).getY());
+                position.get(i - 1).setX(position.get(i - 2).getX());
+            }
 
-        switch (direction) {
-            case "up":
-                position.get(0).setY(position.get(0).getY() - 1);
-                break;
-            case "right":
-                position.get(0).setX(position.get(0).getX() + 1);
-                break;
-            case "down":
-                position.get(0).setY(position.get(0).getY() + 1);
-                break;
-            case "left":
-                position.get(0).setX(position.get(0).getX() - 1);
-                break;
-            default:
-                System.out.println("ERROR: INCORRECT DIRECTION OBTAINED IN UPDATEPOSITION");
-                break;
+            switch (direction) {
+                case "up":
+                    position.get(0).setY(position.get(0).getY() - 1);
+                    break;
+                case "right":
+                    position.get(0).setX(position.get(0).getX() + 1);
+                    break;
+                case "down":
+                    position.get(0).setY(position.get(0).getY() + 1);
+                    break;
+                case "left":
+                    position.get(0).setX(position.get(0).getX() - 1);
+                    break;
+                default:
+                    System.out.println("ERROR: INCORRECT DIRECTION OBTAINED IN UPDATEPOSITION");
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println("Snake died?");
         }
 
     }
-  
-  
-    public static boolean eatDetect()
-    {
-        boolean eat;
-        eat = Food.getX() == getPosition().get(0).getX() && Food.getY() == Snake.getPosition().get(0).getY();
+
+
+    public static boolean eatDetect() {
+        boolean eat = false;
+        try {
+            eat = Food.getX() == getPosition().get(0).getX() && Food.getY() == Snake.getPosition().get(0).getY();
+        } catch (Exception e) {
+            System.out.println("Exception caught in eatDetect...Did snake die?");
+        }
         return eat;
     }
 
@@ -125,6 +132,17 @@ public class Snake {
         return 0.0;
     }
 
+    public static void resetSnake() {
+
+        setSnakeExists(false);
+
+        int snakeSize = position.size();
+        position.subList(0, snakeSize).clear();
+
+        //initSnake();
+
+    }
+
     public static boolean doesSnakeExist() {
         return snakeExists;
     }
@@ -145,7 +163,7 @@ public class Snake {
         Snake.direction = direction;
     }
 
-    public static void isValidPosition() throws InterruptedException {
+    public static void isValidPosition() {
 
         if (position.get(0).getX() < 0 || position.get(0).getX() >= 23 ||
                 position.get(0).getY() < 0 || position.get(0).getY() >= 23) {
