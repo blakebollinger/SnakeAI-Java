@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Color;
 
 public class Display extends JFrame {
 
@@ -19,6 +20,7 @@ public class Display extends JFrame {
 
     }
 
+
     public static void drawSnake(Graphics2D g2d) {
 
         if (!Snake.doesSnakeExist()) {
@@ -30,9 +32,50 @@ public class Display extends JFrame {
         // Draw in head
         g2d.drawRect((Snake.getPosition().get(0).getX() * 30) + 20, (Snake.getPosition().get(0).getY() * 30) + 90, 30, 30);
 
+        Color indigo = new Color(75,0,130);
+        Color violet = new Color(238,130,238);
         // Draw in tail
+        int y =0;
         for (int i = 1; i < Snake.getPosition().size(); i++) {
+            if (y == 0)
+            {
+                g2d.setColor(Color.red);
+
+            }
+            if (y == 1)
+            {
+                g2d.setColor(Color.orange);
+
+            }
+            if (y == 2)
+            {
+                g2d.setColor(Color.yellow);
+
+            }
+            if (y == 3)
+            {
+                g2d.setColor(Color.green);
+            }
+            if (y == 4)
+            {
+                g2d.setColor(Color.blue);
+            }
+            if (y == 5)
+            {
+                g2d.setColor(indigo);
+            }
+            if (y == 6)
+            {
+                g2d.setColor(violet);
+            }
+            y++;
+            if (y == 7)
+            {
+                y = 0;
+            }
+
             g2d.fillRect((Snake.getPosition().get(i).getX() * 30) + 20, (Snake.getPosition().get(i).getY() * 30) + 90, 30, 30);
+            System.out.println("body count " + y);
         }
     }
 
@@ -49,6 +92,7 @@ public class Display extends JFrame {
             Food.setFoodExists(true);
             Score.addPoints();
         }
+        g2d.setColor(Color.cyan);
 
         g2d.fillRect((Food.getX() * 30) + 20, (Food.getY() * 30) + 90, 30, 30);
 
