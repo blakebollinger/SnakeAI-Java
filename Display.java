@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Color;
 
 public class Display extends JFrame {
 
@@ -37,42 +36,33 @@ public class Display extends JFrame {
         // Draw in tail
         int y =0;
         for (int i = 1; i < Snake.getPosition().size(); i++) {
-            if (y == 0)
-            {
-                g2d.setColor(Color.red);
 
+            switch (y) {
+                case 0:
+                    g2d.setColor(Color.red);
+                    break;
+                case 1:
+                    g2d.setColor(Color.orange);
+                    break;
+                case 2:
+                    g2d.setColor(Color.yellow);
+                    break;
+                case 3:
+                    g2d.setColor(Color.green);
+                    break;
+                case 4:
+                    g2d.setColor(Color.blue);
+                    break;
+                case 5:
+                    g2d.setColor(indigo);
+                    break;
+                case 6:
+                    g2d.setColor(violet);
+                    y = -1;
+                    break;
             }
-            if (y == 1)
-            {
-                g2d.setColor(Color.orange);
 
-            }
-            if (y == 2)
-            {
-                g2d.setColor(Color.yellow);
-
-            }
-            if (y == 3)
-            {
-                g2d.setColor(Color.green);
-            }
-            if (y == 4)
-            {
-                g2d.setColor(Color.blue);
-            }
-            if (y == 5)
-            {
-                g2d.setColor(indigo);
-            }
-            if (y == 6)
-            {
-                g2d.setColor(violet);
-            }
             y++;
-            if (y == 7)
-            {
-                y = 0;
-            }
 
             g2d.fillRect((Snake.getPosition().get(i).getX() * 30) + 20, (Snake.getPosition().get(i).getY() * 30) + 90, 30, 30);
 
