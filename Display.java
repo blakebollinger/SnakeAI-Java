@@ -75,7 +75,7 @@ public class Display extends JFrame {
             }
 
             g2d.fillRect((Snake.getPosition().get(i).getX() * 30) + 20, (Snake.getPosition().get(i).getY() * 30) + 90, 30, 30);
-            System.out.println("body count " + y);
+
         }
     }
 
