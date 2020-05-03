@@ -1,3 +1,4 @@
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -55,13 +56,22 @@ public class Snake {
 
     }
 
-    public static void updatePosition() {
+    public static void updatePosition()  {
         eatDetect();
         System.out.println(eatDetect());
         if(eatDetect())
         {
             position.add(new Coordinate(position.get(position.size() - 1).getX()-1, position.get(position.size() - 1).getY()-1));
             Food.setFoodExists(false);
+
+        }
+        if(eatDetectBad())
+        {
+            try {
+                SnakeGame.getMainGame().end();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
 
@@ -95,6 +105,13 @@ public class Snake {
     {
         boolean eat;
         eat = Food.getX() == getPosition().get(0).getX() && Food.getY() == Snake.getPosition().get(0).getY();
+        return eat;
+    }
+
+    public static boolean eatDetectBad()
+    {
+        boolean eat;
+        eat = BadFood.getX() == getPosition().get(0).getX() && Food.getY() == Snake.getPosition().get(0).getY();
         return eat;
     }
 
