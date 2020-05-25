@@ -1,8 +1,7 @@
 # Welcome to SnakeAI
 
-SnakeAI is a neural network built to play the classic game Snake!
+This is the first (Java) iteration of my snake-playing neural network.
 
-SnakeAI is built on a custom Snake game that feeds data directly into the neural network for processing.
+This iteration does not have a finished neural network. However, the core game is functional
 
-### SNAKE GAME NOW WORKS
-#### Neural networking to come...
+### Feel free to modify/share in coordinance with the license provided
