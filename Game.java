@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.net.MalformedURLException;
 
 public class Game {
 
@@ -70,7 +69,7 @@ public class Game {
 
         g2d.setColor(Color.black);
 
-        String loseMessage = "GAME OVER DINGUS";
+        String loseMessage = "Placeholder Message...You Lose        Please Restart the game";
 
         g2d.drawString(loseMessage,
                 (display.getDisplayWidth() - display.getFontMetrics(display.getFont()).stringWidth(loseMessage)) / 2,

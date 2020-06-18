@@ -75,7 +75,6 @@ public class Display extends JFrame {
         System.out.println("State of food " + Food.getFoodExists());
         if (!Food.getFoodExists()) {
             System.out.println("Food didnt exist...making new food");
-            BadFood.setBadFoodExists(false);
 
             Randomizer f = new Randomizer();
             Food.setX(f.getX());
@@ -88,25 +87,6 @@ public class Display extends JFrame {
         g2d.fillRect((Food.getX() * 30) + 20, (Food.getY() * 30) + 90, 30, 30);
 
     }
-    public static void drawBadFood(Graphics g2d)
-    {
-
-
-        if (!BadFood.getBadFoodExists()) {
-
-
-            Randomizer f = new Randomizer();
-            BadFood.setX(f.getX());
-            BadFood.setY(f.getY());
-            BadFood.setBadFoodExists(true);
-
-        }
-        g2d.setColor(Color.black);
-
-        g2d.fillRect((BadFood.getX() * 30) + 20, (BadFood.getY() * 30) + 90, 30, 30);
-
-    }
-
 
     // Does all initial drawing for game
     public void drawGame(Graphics g) {
@@ -115,7 +95,6 @@ public class Display extends JFrame {
         initBoard(g2d);
         drawSnake(g2d);
         drawFood(g2d);
-        drawBadFood(g2d);
 
 
     }
@@ -188,5 +167,4 @@ public class Display extends JFrame {
     public void setFont(Font font) {
         this.font = font;
     }
-
 }
