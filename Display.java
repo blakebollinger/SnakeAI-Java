@@ -19,6 +19,7 @@ public class Display extends JFrame {
 
     }
 
+
     public static void drawSnake(Graphics2D g2d) {
 
         if (!Snake.doesSnakeExist()) {
@@ -30,9 +31,11 @@ public class Display extends JFrame {
         // Draw in head
         g2d.drawRect((Snake.getPosition().get(0).getX() * 30) + 20, (Snake.getPosition().get(0).getY() * 30) + 90, 30, 30);
 
+        Color indigo = new Color(75,0,130);
+        Color violet = new Color(238,130,238);
         // Draw in tail
+        int y =0;
         for (int i = 1; i < Snake.getPosition().size(); i++) {
-<<<<<<< HEAD
 
             switch (y) {
                 case 0:
@@ -63,9 +66,6 @@ public class Display extends JFrame {
 
             g2d.fillRect((Snake.getPosition().get(i).getX() * 30) + 20, (Snake.getPosition().get(i).getY() * 30) + 90, 30, 30);
 
-=======
-            g2d.fillRect((Snake.getPosition().get(i).getX() * 30) + 20, (Snake.getPosition().get(i).getY() * 30) + 90, 30, 30);
->>>>>>> parent of 28d6bd6... Added Some colorful spice to the snake and food
         }
     }
 
@@ -82,6 +82,7 @@ public class Display extends JFrame {
             Food.setFoodExists(true);
             Score.addPoints();
         }
+        g2d.setColor(Color.cyan);
 
         g2d.fillRect((Food.getX() * 30) + 20, (Food.getY() * 30) + 90, 30, 30);
 
